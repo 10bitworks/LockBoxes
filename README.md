@@ -9,3 +9,5 @@ The intention of this design is to;
 
 3-Create a log of machine usage, may be involved in a machine usage charge system later on.
 
+------
+This project will be written in python with the intent to be run a Pi-Zero W, and planned to interact with a MySQL database.
