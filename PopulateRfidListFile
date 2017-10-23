@@ -6,22 +6,22 @@ import MySQLdb as mdb
 db_ip = "192.168.42.1"          #ip of the computer with the database
 db_usr =  "desktop"             #account name that has permissions to access the database
 db_psw = "raspberry"            #password to the account that can access the database
-db_db = "rfid"                  #name of the database
+db_db = "10BitServer"           #name of the database
 
 Trainging_type = TableSaw #type of training as stated on DB
 
 
 try:
-                    mdb.connect(host= db_ip, user= db_usr, passwd= db_psw, db= db_db,);
-                    cur = con.cursor()                              # activiate cursor in the database
-                    cur.execute("SELECT rfid FROM training WHERE training = %s",(Training_Type))  #query the databse for card ID
-                    f = open("RFIDlist.txt","w")                    #opens file with name of "RFIDlist.txt"
-                    f.truncate()                                    #clearts existing list
-                    for (rfid) in cur:
-                      f.write({})
-                    f.close                                         #closes file
-                    cur.close()                                     #close the cursor 
-                except:                                         #if exception thrown do the following
-                    print "Database Lookup Failed"                  #print to screen that the databse look up had failed
+  mdb.connect(host= db_ip, user= db_usr, passwd= db_psw, db= db_db,);
+  cur = con.cursor()                              # activiate cursor in the database
+  cur.execute("SELECT rfid FROM training WHERE training = %s",(Training_Type))  #query the databse for card ID
+  f = open("RFIDlist.txt","w")                    #opens file with name of "RFIDlist.txt"
+  f.truncate()                                    #clearts existing list
+  for (rfid) in cur:
+    f.write({})
+  f.close                                         #closes file
+  cur.close()                                     #close the cursor 
+except:                                         #if exception thrown do the following
+  print "Database Lookup Failed"                  #print to screen that the databse look up had failed
 
 mdb.close()
